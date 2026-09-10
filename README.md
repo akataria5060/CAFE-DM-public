@@ -162,9 +162,7 @@ not directly comparable.
 
 ## Checkpoints
 
-Not committed here — the alignment checkpoint is 752 MB and the diffusion
-U-Net 773 MB, both over GitHub's file limit. See Releases, or retrain with
-the commands above.
+Not committed here — the alignment checkpoint is 752 MB and the diffusion U-Net 773 MB, both over GitHub's 100 MB file limit. Weights are available from the authors on request. All results can be reproduced from scratch with the commands above.
 
 ## Citation
 
