@@ -1,0 +1,48 @@
+# Checkpoints -- too large for git. Attach to a Release instead.
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+checkpoints/
+align/
+diffusion/
+food101_arms/
+uec_arms/
+
+# Data
+data/
+recipe1m/
+food101/
+*.tar
+*.tar.gz
+*.zip
+det_ingrs.json
+layer1.json
+layer2.json
+
+# Run artefacts
+*.log
+*.pkl
+results.csv
+figs/
+samples/
+outputs/
+runs/
+wandb/
+
+# HuggingFace cache
+hf_cache/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Notebooks -- exploration only
+*.ipynb
+.ipynb_checkpoints/
+
+# OS
+.DS_Store

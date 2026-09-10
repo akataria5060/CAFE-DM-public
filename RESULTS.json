@@ -1,0 +1,180 @@
+{
+  "date": "2026-09-06",
+  "alignment": {
+    "checkpoint": "align_train_20k_seed42.pth",
+    "steps": 20000,
+    "batch": 32,
+    "train_recipes": 281297,
+    "confusion_gap_real": {
+      "potato/pineapple": [
+        0.2864,
+        0.943
+      ],
+      "onion/garlic": [
+        0.3111,
+        0.92
+      ],
+      "lemon/lime": [
+        0.0554,
+        0.749
+      ],
+      "oregano/basil": [
+        0.012,
+        0.624
+      ],
+      "mean": [
+        0.1662,
+        0.809
+      ],
+      "n_per_pair": 2000,
+      "split": "val"
+    },
+    "pair_coverage_train": {
+      "overall": 0.44,
+      "onion/garlic": 0.26,
+      "lemon/lime": 0.162,
+      "potato/pineapple": 0.075,
+      "oregano/basil": 0.068
+    }
+  },
+  "diffusion": {
+    "checkpoint": "unet_micro90000.pt",
+    "micro_steps": 90000,
+    "optimizer_steps": 6000,
+    "batch": 32,
+    "accum": 15,
+    "effective_batch": 480,
+    "hours": 13.7,
+    "resolution": 256,
+    "vae": "stabilityai/sd-vae-ft-mse",
+    "params_M": 202.5,
+    "headline": {
+      "n": 10000,
+      "ddim_steps": 100,
+      "guidance": 5.0,
+      "FID": 62.14,
+      "IS": [
+        7.93,
+        0.15
+      ],
+      "MS_SSIM": 0.0702
+    },
+    "rdfgm_reference": {
+      "FID": 82.45,
+      "IS": [
+        16.88,
+        0.05
+      ],
+      "MS_SSIM": 0.0547
+    },
+    "guidance_sweep_n2048": {
+      "2.5": {
+        "FID": 90.8,
+        "IS": [
+          6.27,
+          0.42
+        ],
+        "MS_SSIM": 0.0789
+      },
+      "3.5": {
+        "FID": 83.28,
+        "IS": [
+          6.82,
+          0.36
+        ],
+        "MS_SSIM": 0.0749
+      },
+      "5.0": {
+        "FID": 78.12,
+        "IS": [
+          7.55,
+          0.4
+        ],
+        "MS_SSIM": 0.0722
+      },
+      "7.5": {
+        "FID": 81.33,
+        "IS": [
+          8.27,
+          0.54
+        ],
+        "MS_SSIM": 0.0713
+      }
+    },
+    "confusion_gap_generated": {
+      "potato/pineapple": [
+        0.1789,
+        0.0062,
+        0.943
+      ],
+      "onion/garlic": [
+        0.2762,
+        0.0091,
+        0.922
+      ],
+      "lemon/lime": [
+        0.0304,
+        0.0033,
+        0.576
+      ],
+      "oregano/basil": [
+        0.0112,
+        0.0012,
+        0.654
+      ],
+      "mean": 0.1242,
+      "n_per_pair": 512,
+      "prompts": "real test recipes, exclusivity enforced"
+    }
+  },
+  "food101": {
+    "protocol": "official 75750/25250 split, 30 epochs, batch 32, AdamW 1e-4, 3-epoch warmup + cosine, mixup 0.2, label smoothing 0.1, EMA 0.999, 8-view TTA, seed 42",
+    "imagenet_init": {
+      "top1": 91.48,
+      "top5": 98.63,
+      "top1_tta": 92.16,
+      "top5_tta": 98.85
+    },
+    "alignment_init": {
+      "top1": 91.97,
+      "top5": 98.68,
+      "top1_tta": 92.66,
+      "top5_tta": 98.8
+    },
+    "rdfgm_reference": {
+      "top1": 91.01,
+      "top5": 98.33
+    },
+    "alignment_gain_top1": 0.49,
+    "alignment_gain_top1_tta": 0.5
+  },
+  "uec_food256": {
+    "protocol": "bounding-box crops from bb_info.txt; 70/15/15 GROUP split by source photograph (no photo spans train/test); 30 epochs, batch 32, AdamW 1e-4, 3-epoch warmup + cosine, mixup 0.2, label smoothing 0.1, EMA 0.999, 8-view TTA, seed 42",
+    "n_instances": 31645,
+    "n_train": 22041,
+    "n_val": 4695,
+    "n_test": 4909,
+    "n_classes": 256,
+    "resnet50": {
+      "top1": 79.41,
+      "top5": 94.81,
+      "top1_tta": 81.14,
+      "top5_tta": 95.36
+    },
+    "swin_imagenet": {
+      "top1": 84.13,
+      "top5": 96.9,
+      "top1_tta": 85.56,
+      "top5_tta": 97.39
+    },
+    "swin_align": {
+      "top1": 85.03,
+      "top5": 97.21,
+      "top1_tta": 86.13,
+      "top5_tta": 97.51
+    },
+    "alignment_gain_top1": 0.9,
+    "alignment_gain_top1_tta": 0.57,
+    "note": "Prior work on this dataset (WISeR 83.15, JDNet 84.00, RAFA-Net 91.56) uses the dataset's five-fold cross-validation protocol, not this split. Our three arms are an internal comparison only."
+  }
+}

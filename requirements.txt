@@ -1,0 +1,26 @@
+# PyTorch is NOT pinned here on purpose. Developed against the NVIDIA
+# container build (torch 2.4.0a0+f70bd71a48.nv24.06). Installing torch from
+# PyPI over an NVIDIA build breaks CUDA. Install torch for your platform
+# first, then:
+#
+#     pip install --no-deps -r requirements.txt
+#
+# The transformers pin matters: 4.45+ requires torch >= 2.5.
+
+transformers==4.44.2
+tokenizers==0.19.1
+huggingface-hub==0.24.6
+diffusers==0.31.0
+safetensors
+regex
+filelock
+packaging
+pyyaml
+requests
+
+numpy<2
+pillow
+torchvision
+torchmetrics
+scikit-learn
+matplotlib
